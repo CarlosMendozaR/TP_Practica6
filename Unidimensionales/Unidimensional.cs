@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace Unidimensionales
+namespace ArreglosUnidimensionales
 {
     class Unidimensional
     {
@@ -18,7 +14,6 @@ namespace Unidimensionales
             {
                 vector.matriz[i] = float.Parse(columnas[i]);
             }
-
             return vector;
         }
 

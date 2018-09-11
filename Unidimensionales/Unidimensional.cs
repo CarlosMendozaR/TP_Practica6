@@ -18,7 +18,6 @@ namespace ArreglosUnidimensionales
                     for (int i = 0; i < vector.matriz.Length; i++)
                     {
                         vector.matriz[i] = Convert.ToDouble(Convert.ToString(entrada[i * 2]));
-                        //entrada[i*2] es un char[], entonces convierto primero a string y después a int
                     }
                 }
                 else

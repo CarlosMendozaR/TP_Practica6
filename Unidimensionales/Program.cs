@@ -13,9 +13,18 @@ namespace ArreglosUnidimensionales
             Unidimensional v1;
             v1 = Unidimensional.Leer(dato);
             Console.WriteLine("Tu vector es: "+ v1.ToString()+"\n");
+            byte caso;
 
-            Console.WriteLine("Selecciona la opción que desees.\n  0) Suma con otro vector\n  1) Multiplicación por un escalar\n  2) Multiplicación por otro vector\n");
-            byte caso = byte.Parse(Console.ReadLine());
+            try
+            {
+                Console.WriteLine("Selecciona la opción que desees.\n  0) Suma con otro vector\n  1) Multiplicación por un escalar\n  2) Multiplicación por otro vector\n");
+                caso = byte.Parse(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine("Formato incorrecto, se asigno suma automaticamente");
+                caso = 0;
+            }
 
             switch (caso)
             {
@@ -29,8 +38,17 @@ namespace ArreglosUnidimensionales
                     break;
 
                 case 1:
-                    Console.WriteLine("Ingresa el escalar por el que quieres multiplicar tu vector.");
-                    int escalar = int.Parse(Console.ReadLine());
+                    int escalar;
+                    try
+                    {
+                        Console.WriteLine("Ingresa el escalar por el que quieres multiplicar tu vector.");
+                        escalar = int.Parse(Console.ReadLine());
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Formato incorrecto, se asigno 1 como tu escalar");
+                        escalar = 1;
+                    }
                     Unidimensional res1 = new Unidimensional();
                     Console.WriteLine("RESULTADO");
                     res1.M_Escalar(v1, escalar);
@@ -44,7 +62,12 @@ namespace ArreglosUnidimensionales
                     Console.WriteLine("RESULTADO");
                     res2.M_Vector(v1, v4);
                     break;
+                default:
+                    Console.WriteLine("Formato incorrecto");
+                    break;
             }
+
+            Console.ReadLine();
         }
     }
 }
